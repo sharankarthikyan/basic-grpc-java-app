@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "user.proto";
+
+option java_package = "com.sharan.grpc";
+
+
+service user{
+    rpc login(LoginRequest)  returns (APIResponse);
+    rpc logout(Empty)  returns (APIResponse);
+
+    rpc GreetManyTimesServerStream(GreetManyTimesRequest) returns (stream GreetManyTimesResponse);
+    rpc LongGreet(stream LongGreetRequest) returns (LongGreetResponse) {};
+    rpc GreetEveryone (stream GreetEveryoneRequest) returns (stream GreetEveryoneResponse);
+}
